@@ -95,6 +95,14 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
 }
+.music-btn {
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #FFD700;
+    margin-top: 15px;
+}
 </style>
 </head>
 <body>
@@ -102,6 +110,7 @@ button:hover {
 <source src="https://static.videezy.com/system/resources/previews/000/040/570/original/Science_Background.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+<audio id="farewellAudio" src="https://github.com/PratyushAgrawal09/Farewell/raw/refs/heads/main/videoplayback.mp3"></audio>
 <div class="content">
     <h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
     <p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
@@ -112,6 +121,7 @@ Your browser does not support the video tag.
     <div class="button-container">
         <button onclick="showPopup()">End Message</button>
     </div>
+    <button class="music-btn" onclick="toggleAudio()">🎵</button>
 </div>
 <div id="popup" class="popup">
     <p>Dear Sir,<br><br>
@@ -122,11 +132,20 @@ Your browser does not support the video tag.
     <button class="close-btn" onclick="closePopup()">Close</button>
 </div>
 <script>
+let audio = document.getElementById("farewellAudio");
 function showPopup() {
     document.getElementById("popup").style.display = "block";
 }
 function closePopup() {
     document.getElementById("popup").style.display = "none";
+}
+function toggleAudio() {
+    if (audio.paused) {
+        audio.currentTime = 5; 
+        audio.play();
+    } else {
+        audio.pause();
+    }
 }
 </script>
 </body>
