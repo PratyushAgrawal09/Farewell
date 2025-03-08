@@ -21,27 +21,35 @@ body {
     align-items: center;
 }
 video {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
     width: auto;
     height: auto;
     z-index: -1;
     transform: translate(-50%, -50%);
     opacity: 1;
 }
+.content {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 h1, p {
     text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.8);
 }
 .message {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    max-width: 70%;
+    width: 100%;
     backdrop-filter: blur(10px);
+    font-size: 1em;
 }
 .button-container {
     margin-top: 20px;
@@ -49,8 +57,8 @@ h1, p {
 button {
     background: #FFD700;
     color: black;
-    padding: 15px 25px;
-    font-size: 1.2em;
+    padding: 12px 20px;
+    font-size: 1em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -66,21 +74,22 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     text-align: center;
-    max-width: 80%;
+    width: 90%;
+    max-width: 500px;
     backdrop-filter: blur(10px);
 }
 .popup p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
 }
 .close-btn {
     background: #FF4500;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     font-size: 1em;
     border: none;
     border-radius: 8px;
@@ -93,14 +102,16 @@ button:hover {
 <source src="https://static.videezy.com/system/resources/previews/000/040/570/original/Science_Background.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
-<p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
-<div class="message">
-<p>"Your class was never just about chemistry—it was about fun, learning, and laughter! Whether through Dum Charades 🎭 or your hilarious roasts 🤣, you made every day in school feel special. We will always cherish those moments!"</p>
-<p>"You made chemistry easy, but saying goodbye is the hardest equation we’ve ever had to solve. Thank you for being the best teacher, mentor, and entertainer all in one!"</p>
-</div>
-<div class="button-container">
-    <button onclick="showPopup()">End Message</button>
+<div class="content">
+    <h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
+    <p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
+    <div class="message">
+        <p>"Your class was never just about chemistry—it was about fun, learning, and laughter! Whether through Dum Charades 🎭 or your hilarious roasts 🤣, you made every day in school feel special. We will always cherish those moments!"</p>
+        <p>"You made chemistry easy, but saying goodbye is the hardest equation we’ve ever had to solve. Thank you for being the best teacher, mentor, and entertainer all in one!"</p>
+    </div>
+    <div class="button-container">
+        <button onclick="showPopup()">End Message</button>
+    </div>
 </div>
 <div id="popup" class="popup">
     <p>Dear Sir,<br><br>
