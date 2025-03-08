@@ -43,16 +43,6 @@ h1, p {
     max-width: 70%;
     backdrop-filter: blur(10px);
 }
-.emoji {
-    position: absolute;
-    bottom: -50px;
-    font-size: 2.5em;
-    animation: floatEmojis 6s ease-in-out infinite;
-}
-@keyframes floatEmojis {
-    0% { transform: translateY(100vh); opacity: 1; }
-    100% { transform: translateY(-10vh); opacity: 0; }
-}
 .button-container {
     margin-top: 20px;
 }
@@ -121,17 +111,6 @@ Your browser does not support the video tag.
     <button class="close-btn" onclick="closePopup()">Close</button>
 </div>
 <script>
-function createFloatingEmoji() {
-    const emojis = ["🥹", "😢", "😂", "🤣", "😎", "🤩", "🥼", "🧪", "🧫", "⚗️", "🔬", "📖"];
-    const emoji = document.createElement("div");
-    emoji.classList.add("emoji");
-    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    emoji.style.left = Math.random() * 100 + "vw";
-    emoji.style.animationDuration = (Math.random() * 6 + 4) + "s";
-    document.body.appendChild(emoji);
-    setTimeout(() => { emoji.remove(); }, 10000);
-}
-setInterval(createFloatingEmoji, 500);
 function showPopup() {
     document.getElementById("popup").style.display = "block";
 }
