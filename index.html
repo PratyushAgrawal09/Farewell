@@ -38,6 +38,14 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 h1, p {
     text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.8);
@@ -98,13 +106,10 @@ button:hover {
 .music-btn {
     background: cyan;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
     cursor: pointer;
     color: black;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 8px;
+    padding: 6px;
     border-radius: 50%;
     transition: background 0.3s;
 }
@@ -119,9 +124,8 @@ button:hover {
 Your browser does not support the video tag.
 </video>
 <audio id="farewellAudio" src="https://github.com/PratyushAgrawal09/Farewell/raw/refs/heads/main/videoplayback.mp3"></audio>
-<button class="music-btn" onclick="toggleAudio()">🎵</button>
 <div class="content">
-    <h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
+    <h1>Farewell Abhishek Sir! 🎉😭🧪 <button class="music-btn" onclick="toggleAudio()">🎵</button></h1>
     <p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
     <div class="message">
         <p>"Your class was never just about chemistry—it was about fun, learning, and laughter! Whether through Dum Charades 🎭 or your hilarious roasts 🤣, you made every day in school feel special. We will always cherish those moments!"</p>
