@@ -14,11 +14,30 @@ body {
     overflow: hidden;
     position: relative;
     height: 100vh;
-    background: black;
+    background: #001f3f;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.hidden {
+    display: none;
+}
+#startButton {
+    background: cyan;
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    text-shadow: 0 0 10px cyan;
+    box-shadow: 0 0 20px cyan;
+}
+#startButton:hover {
+    background: #00bcd4;
+    box-shadow: 0 0 25px #00bcd4;
 }
 video {
     position: fixed;
@@ -39,13 +58,7 @@ video {
     flex-direction: column;
     align-items: center;
     position: relative;
-}
-h1 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: -20px;
 }
 h1, p {
     text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.8);
@@ -60,10 +73,11 @@ h1, p {
     font-size: 1em;
 }
 .button-container {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: center;
 }
 button {
     background: #FFD700;
@@ -87,7 +101,7 @@ button:hover {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     text-align: center;
     width: 90%;
     max-width: 500px;
@@ -106,40 +120,26 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
 }
-.music-button {
-    background: #00FFFF;
-    color: black;
-    padding: 10px 15px;
-    font-size: 1em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.music-button:hover {
-    background: #008B8B;
-}
 </style>
 </head>
 <body>
-<video autoplay loop muted>
-<source src="https://static.videezy.com/system/resources/previews/000/040/570/original/Science_Background.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<audio id="farewellAudio" src="https://github.com/PratyushAgrawal09/Farewell/raw/refs/heads/main/videoplayback.mp3"></audio>
-<div class="content">
-    <h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
-    <p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
-    <div class="message">
-        <p>"Your class was never just about chemistry—it was about fun, learning, and laughter! Whether through Dum Charades 🎭 or your hilarious roasts 🤣, you made every day in school feel special. We will always cherish those moments!"</p>
-        <p>"You made chemistry easy, but saying goodbye is the hardest equation we’ve ever had to solve. Thank you for being the best teacher, mentor, and entertainer all in one!"</p>
-    </div>
-    <div class="button-container">
-        <button onclick="showPopup()">End Message</button>
-        <button class="music-button" onclick="toggleAudio()">🎵</button>
+<button id="startButton">Click</button>
+<div id="mainContent" class="hidden">
+    <video autoplay loop muted>
+        <source src="https://static.videezy.com/system/resources/previews/000/040/570/original/Science_Background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <audio id="farewellAudio" src="https://github.com/PratyushAgrawal09/Farewell/raw/refs/heads/main/videoplayback.mp3"></audio>
+    <div class="content">
+        <h1>Farewell Abhishek Sir! 🎉😭🧪</h1>
+        <p>Thank you for igniting our passion for chemistry and inspiring us every day! 🧬✨</p>
+        <div class="message">
+            <p>"Your class was never just about chemistry—it was about fun, learning, and laughter! Whether through Dum Charades 🎭 or your hilarious roasts 🤣, you made every day in school feel special. We will always cherish those moments!"</p>
+            <p>"You made chemistry easy, but saying goodbye is the hardest equation we’ve ever had to solve. Thank you for being the best teacher, mentor, and entertainer all in one!"</p>
+        </div>
+        <div class="button-container">
+            <button onclick="showPopup()">End Message</button>
+        </div>
     </div>
 </div>
 <div id="popup" class="popup">
@@ -151,16 +151,13 @@ Your browser does not support the video tag.
     <button class="close-btn" onclick="closePopup()">Close</button>
 </div>
 <script>
-let audio = document.getElementById("farewellAudio");
-
-audio.currentTime = 5;
-function toggleAudio() {
-    if (audio.paused) {
-        audio.play();
-    } else {
-        audio.pause();
-    }
-}
+document.getElementById("startButton").addEventListener("click", function() {
+    document.getElementById("startButton").style.display = "none";
+    document.getElementById("mainContent").classList.remove("hidden");
+    let audio = document.getElementById("farewellAudio");
+    audio.currentTime = 5;
+    audio.play();
+});
 
 function showPopup() {
     document.getElementById("popup").style.display = "block";
